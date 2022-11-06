@@ -5,10 +5,10 @@ export default function Header() {
         <header className="header">
             <img 
                 src="./images/troll-face.png" 
-                className="header--image"
+                className="header-image"
             />
-            <h2 className="header--title">Meme Generator</h2>
-            <h4 className="header--project">https://github.com/rainsab</h4>
+            <h2 className="header-title">Meme Generator</h2>
+            <h4 className="header-project">https://github.com/rainsab</h4>
         </header>
     )
 }
