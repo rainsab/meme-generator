@@ -35,6 +35,7 @@ export default function Meme() {
 
     return (
         <main>
+            <p className='getMeme'>Just made screenshot to get Meme!</p>
             <div className="form">
                 <input
                     type="text"
