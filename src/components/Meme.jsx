@@ -86,7 +86,7 @@ export default function Meme() {
             <div className="meme">
                 <img src={meme.randomImage} className="meme-image" />
                 <h2 
-                    style={{transform: `translate(${meme.topTextPositionX}%, ${meme.topTextPositionY}%`}}
+                    style={{transform: `translate(${meme.topTextPositionX}px, ${meme.topTextPositionY}px`}}
                     className="meme-text top">{meme.topText}
                 </h2>
                 <h2 className="meme-text bottom">{meme.bottomText}</h2>
