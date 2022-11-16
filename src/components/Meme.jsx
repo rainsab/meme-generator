@@ -4,6 +4,8 @@ export default function Meme() {
 
     const [meme, setMeme] = React.useState({
         topText: "",
+        topTextPositionX: "0",
+        topTextPositionY: "0",
         bottomText: "",
         randomImage: "http://i.imgflip.com/1bij.jpg"
     })
@@ -26,12 +28,17 @@ export default function Meme() {
     }
 
     const handleChange = (event) => {
+        console.log(event.target.value)
         const {name, value} = event.target
         setMeme(prevMeme => ({
             ...prevMeme,
             [name]: value
         }))
     }
+
+    //const styles = {
+    //    transform: "translateX(50%)"
+    //}
 
     return (
         <main>
@@ -44,6 +51,22 @@ export default function Meme() {
                     name="topText"
                     onChange={handleChange}
                     value={meme.topText}
+                />
+                <input
+                    type="number"
+                    placeholder="Top text position X"
+                    className="form-input"
+                    name="topTextPositionX"
+                    onChange={handleChange}
+                    value={meme.topTextPositionX}
+                />
+                <input
+                    type="number"
+                    placeholder="Top text position Y"
+                    className="form-input"
+                    name="topTextPositionY"
+                    onChange={handleChange}
+                    value={meme.topTextPositionY}
                 />
                 <input
                     type="text"
@@ -62,7 +85,10 @@ export default function Meme() {
             </div>
             <div className="meme">
                 <img src={meme.randomImage} className="meme-image" />
-                <h2 className="meme-text top">{meme.topText}</h2>
+                <h2 
+                    style={{transform: `translate(${meme.topTextPositionX}%, ${meme.topTextPositionY}%`}}
+                    className="meme-text top">{meme.topText}
+                </h2>
                 <h2 className="meme-text bottom">{meme.bottomText}</h2>
             </div>
         </main>
