@@ -1,5 +1,4 @@
 import React from "react"
-import {nanoid} from "nanoid"
 
 export default function Meme() {
     React.useEffect(() => {
@@ -26,60 +25,80 @@ export default function Meme() {
     //Work here
 
     const [meme, setMeme] = React.useState([{
-        id: nanoid(),
+        id: 1,
         text: "",
-        textPositionX: "0",
-        textPositionY: "0",
+        textPositionX: 0,
+        textPositionY: 0,
     }])
 
     const addMemeText = () => {
         const newText = {
-            id: nanoid(),
+            id: meme.length + 1,
             text: "",
-            textPositionX: "0",
-            textPositionY: "0"
+            textPositionX: 0,
+            textPositionY: 0
         }
-        setMeme(prevMeme => [newText, ...prevMeme])
+        setMeme(prevMeme => [...prevMeme, newText])
     }
 
     console.log(meme)
 
-    const handleChange = (event) => {
+    /*const handleChange = (event) => {
         const {name, value} = event.target
+        //console.log(event.target)
         setMeme(prevMeme => ({
             ...prevMeme,
             [name]: value
         }))
+    }*/
+
+    const handleChange = (event) => {
+        const {name, value} = event.target
+        const newState = meme.map(meme => {
+            if (meme.id === meme.key) {
+                return {...meme, [name]: value};
+            } else {
+                return meme;
+            }
+        })
+
+        setMeme(newState);
     }
 
     return (
         <main>
             <p className='getMeme'>Just made screenshot to get Meme!</p>
             <div className="form">
-                <input
-                    type="text"
-                    placeholder="first text"
-                    className="form-input"
-                    name="text"
-                    onChange={handleChange}
-                    value={meme.text}
-                />
-                <input
-                    type="number"
-                    placeholder="first text position X"
-                    className="form-input"
-                    name="textPositionX"
-                    onChange={handleChange}
-                    value={meme.textPositionX}
-                />
-                <input
-                    type="number"
-                    placeholder="first text position Y"
-                    className="form-input"
-                    name="textPositionY"
-                    onChange={handleChange}
-                    value={meme.textPositionY}
-                />
+                {meme.map((meme, index) => {
+                    return (
+                        <div key={index}>
+                            <input
+                                type="text"
+                                placeholder="your text"
+                                className="form-input"
+                                name="text"
+                                onChange={handleChange}
+                                value={meme.text || ''}
+                            />
+                            <input
+                                type="number"
+                                placeholder="text position X"
+                                className="form-input"
+                                name="textPositionX"
+                                onChange={handleChange}
+                                value={meme.textPositionX || ''}
+                            />
+                            <input
+                                type="number"
+                                placeholder="text position Y"
+                                className="form-input"
+                                name="textPositionY"
+                                onChange={handleChange}
+                                value={meme.textPositionY || ''}
+                            />
+                    </div>
+                    )
+                })}
                 <button
                     onClick={addMemeText}>
                     plus
@@ -100,4 +119,55 @@ export default function Meme() {
             </div>
         </main>
     )
+
+    /*return (
+        <main>
+            <p className='getMeme'>Just made screenshot to get Meme!</p>
+            <div className="form">
+                <div key={meme.id}>
+                    <input
+                        type="text"
+                        placeholder="your text"
+                        className="form-input"
+                        name="text"
+                        onChange={handleChange}
+                        value={meme.text || ''}
+                    />
+                    <input
+                        type="number"
+                        placeholder="text position X"
+                        className="form-input"
+                        name="textPositionX"
+                        onChange={handleChange}
+                        value={meme.textPositionX || ''}
+                    />
+                    <input
+                        type="number"
+                        placeholder="text position Y"
+                        className="form-input"
+                        name="textPositionY"
+                        onChange={handleChange}
+                        value={meme.textPositionY || ''}
+                    />
+                </div>
+                <button
+                    onClick={addMemeText}>
+                    plus
+                </button>
+                <button
+                    className="form-button"
+                    onClick={getMemeImage}
+                >
+                    Get a new meme image now!
+                </button>
+            </div>
+            <div className="meme">
+                <img src={memeImage.randomImage} className="meme-image" />
+                <h2 
+                    style={{transform: `translate(${meme.textPositionX}px, ${meme.textPositionY}px`}}
+                    className="meme-text">{meme.text}
+                </h2>
+            </div>
+        </main>
+    )*/
 }
