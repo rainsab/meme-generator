@@ -17,65 +17,48 @@ export default function Meme() {
         setMemeImage(url)
     }
 
-    //Work here
-
-    const [meme, setMeme] = React.useState([{
+    const [memeArray, setMemeArray] = React.useState([{
         id: 1,
         text: "",
         textPositionX: 0,
         textPositionY: 0,
     }])
 
-    const [currentId, setCurrentId] = React.useState(1);
-
     const addMemeText = () => {
         const newText = {
-            id: meme.length + 1,
+            id: memeArray.length + 1,
             text: "",
             textPositionX: 0,
             textPositionY: 0
         }
-        setMeme(prevMeme => [...prevMeme, newText]);
+        setMemeArray(prevMemeArray => [...prevMemeArray, newText]);
     }
-
-    console.log(meme)
-
-    /*const handleChange = (event) => {
-        const {name, value} = event.target
-        //console.log(event.target)
-        setMeme(prevMeme => ({
-            ...prevMeme,
-            [name]: value
-        }))
-    }*/
 
     const handleChange = (event) => {
-        //console.log(event.target.id)
-        //console.log(currentId)
-        console.log(event.target.value)
         const {name, value, id} = event.target
-        const newStateAfterChange = meme.map(meme => {
-            if (meme.id === Number(id)) {
-                return {...meme, [name]: value};
+        const change = memeArray.map(memeObject => {
+            if (memeObject.id === Number(id)) {
+                return {...memeObject, [name]: value};
             } else {
-                return meme;
+                return memeObject;
             }
         })
-        setMeme(newStateAfterChange);
-        console.log(newStateAfterChange);
+        setMemeArray(change);
     }
 
-    const inputElements = meme.map(meme => {
+    //console.log(memeArray)
+
+    const inputElements = memeArray.map(memeObject => {
         return (
-            <div key={meme.id}>
+            <div key={memeObject.id}>
                 <input
                     type="text"
                     placeholder="your text"
                     className="form-input"
                     name="text"
                     onChange={handleChange}
-                    value={meme.text || ''}
-                    id={meme.id}
+                    value={memeObject.text || ''}
+                    id={memeObject.id}
                 />
                 <input
                     type="number"
@@ -83,8 +66,8 @@ export default function Meme() {
                     className="form-input"
                     name="textPositionX"
                     onChange={handleChange}
-                    value={meme.textPositionX || ''}
-                    id={meme.id}
+                    value={memeObject.textPositionX || ''}
+                    id={memeObject.id}
                 />
                 <input
                     type="number"
@@ -92,18 +75,18 @@ export default function Meme() {
                     className="form-input"
                     name="textPositionY"
                     onChange={handleChange}
-                    value={meme.textPositionY || ''}
-                    id={meme.id}
+                    value={memeObject.textPositionY || ''}
+                    id={memeObject.id}
                 />
         </div>
         )
     })
 
-    const textElements = meme.map(meme => {
+    const textElements = memeArray.map(memeObject => {
         return (
-            <h2 key={meme.id}
-                style={{transform: `translate(${meme.textPositionX}px, ${meme.textPositionY}px`}}
-                className="meme-text">{meme.text}
+            <h2 key={memeObject.id}
+                style={{transform: `translate(${memeObject.textPositionX}px, ${memeObject.textPositionY}px`}}
+                className="meme-text">{memeObject.text}
             </h2>
         )
     })
@@ -115,7 +98,7 @@ export default function Meme() {
                 {inputElements}
                 <button
                     onClick={addMemeText}>
-                    plus
+                    Add text
                 </button>
                 <button
                     className="form-button"
@@ -130,55 +113,4 @@ export default function Meme() {
             </div>
         </main>
     )
-
-    /*return (
-        <main>
-            <p className='getMeme'>Just made screenshot to get Meme!</p>
-            <div className="form">
-                <div key={meme.id}>
-                    <input
-                        type="text"
-                        placeholder="your text"
-                        className="form-input"
-                        name="text"
-                        onChange={handleChange}
-                        value={meme.text || ''}
-                    />
-                    <input
-                        type="number"
-                        placeholder="text position X"
-                        className="form-input"
-                        name="textPositionX"
-                        onChange={handleChange}
-                        value={meme.textPositionX || ''}
-                    />
-                    <input
-                        type="number"
-                        placeholder="text position Y"
-                        className="form-input"
-                        name="textPositionY"
-                        onChange={handleChange}
-                        value={meme.textPositionY || ''}
-                    />
-                </div>
-                <button
-                    onClick={addMemeText}>
-                    plus
-                </button>
-                <button
-                    className="form-button"
-                    onClick={getMemeImage}
-                >
-                    Get a new meme image now!
-                </button>
-            </div>
-            <div className="meme">
-                <img src={memeImage.randomImage} className="meme-image" />
-                <h2 
-                    style={{transform: `translate(${meme.textPositionX}px, ${meme.textPositionY}px`}}
-                    className="meme-text">{meme.text}
-                </h2>
-            </div>
-        </main>
-    )*/
 }
