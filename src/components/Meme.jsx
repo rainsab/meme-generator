@@ -100,14 +100,14 @@ export default function Meme() {
                     onClick={addMemeText}>
                     Add text
                 </button>
+            </div>
+            <div className="form">
                 <button
                     className="form-button"
                     onClick={getMemeImage}
                 >
                     Get a new meme image now!
                 </button>
-            </div>
-            <div className="meme">
                 <img src={memeImage} className="meme-image" />
                 {textElements}
             </div>
