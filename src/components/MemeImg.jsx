@@ -19,13 +19,13 @@ export default function MemeImg() {
 
     return (
         <>
+            <img src={memeImage} className="meme-image" />
             <button
                 className="form-button"
                 onClick={getMemeImage}
             >
                 Get a new meme image now!
             </button>
-            <img src={memeImage} className="meme-image" />
         </>
     )
 }

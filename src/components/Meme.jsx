@@ -91,7 +91,10 @@ export default function Meme() {
 
     return (
         <main>
-            <p className='getMeme'>Just made screenshot to get Meme!</p>
+            <div className="form">
+                <MemeImg />
+                {textElements}
+            </div>
             <div className="form">
                 {inputElements}
                 <button
@@ -99,10 +102,7 @@ export default function Meme() {
                     Add text
                 </button>
             </div>
-            <div className="form">
-                <MemeImg />
-                {textElements}
-            </div>
+            <p className='getMeme'>Just made screenshot to get Meme!</p>
         </main>
     )
 }
