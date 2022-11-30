@@ -1,10 +1,11 @@
 import React from "react"
+import {nanoid} from "nanoid"
 import MemeImg from "./MemeImg"
 
 export default function Meme() {
 
     const [memeArray, setMemeArray] = React.useState([{
-        id: 1,
+        id: nanoid(),
         text: "",
         textPositionX: 0,
         textPositionY: 0,
@@ -12,7 +13,7 @@ export default function Meme() {
 
     const addMemeText = () => {
         const newText = {
-            id: memeArray.length + 1,
+            id: nanoid(),
             text: "",
             textPositionX: 0,
             textPositionY: 0
@@ -21,9 +22,9 @@ export default function Meme() {
     }
 
     const handleChange = (event) => {
-        const {name, value, id} = event.target
+        const {name, value, id} = event.target;
         const change = memeArray.map(memeObject => {
-            if (memeObject.id === Number(id)) {
+            if (memeObject.id === id) {
                 return {...memeObject, [name]: value};
             } else {
                 return memeObject;
@@ -32,7 +33,12 @@ export default function Meme() {
         setMemeArray(change);
     }
 
-    //console.log(memeArray)
+    const removeMemeText = (event) => {
+        const id = event.target.id;
+        setMemeArray(prevMemeArray => prevMemeArray.filter(memeObject => memeObject.id !== id));
+    }
+
+    console.log(memeArray)
 
     const inputElements = memeArray.map(memeObject => {
         return (
@@ -64,6 +70,12 @@ export default function Meme() {
                     value={memeObject.textPositionY || ''}
                     id={memeObject.id}
                 />
+                <button 
+                    className="form-input"
+                    id={memeObject.id}
+                    onClick={removeMemeText}>
+                    x
+                </button>
         </div>
         )
     })
