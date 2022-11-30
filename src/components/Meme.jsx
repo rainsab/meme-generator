@@ -74,7 +74,7 @@ export default function Meme() {
                     className="form-input"
                     id={memeObject.id}
                     onClick={removeMemeText}>
-                    x
+                    x 
                 </button>
         </div>
         )
@@ -83,7 +83,7 @@ export default function Meme() {
     const textElements = memeArray.map(memeObject => {
         return (
             <h2 key={memeObject.id}
-                style={{transform: `translate(${memeObject.textPositionX}px, ${450 + Number(memeObject.textPositionY)}px`}}
+                style={{transform: `translate(${memeObject.textPositionX}px, ${80 + Number(memeObject.textPositionY)}px`}}
                 className="meme-text">{memeObject.text}
             </h2>
         )
