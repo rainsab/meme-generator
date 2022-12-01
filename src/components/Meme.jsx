@@ -8,7 +8,7 @@ export default function Meme() {
         id: nanoid(),
         text: "",
         textPositionX: 0,
-        textPositionY: 0,
+        textPositionY: 0
     }])
 
     const addMemeText = () => {
@@ -37,8 +37,6 @@ export default function Meme() {
         const id = event.target.id;
         setMemeArray(prevMemeArray => prevMemeArray.filter(memeObject => memeObject.id !== id));
     }
-
-    console.log(memeArray)
 
     const inputElements = memeArray.map(memeObject => {
         return (

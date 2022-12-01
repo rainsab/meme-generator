@@ -9,12 +9,11 @@ export default function MemeImg() {
 
     const [allMemes, setAllMemes] = React.useState([]);
 
-    const [memeImage, setMemeImage] = React.useState("http://i.imgflip.com/1bij.jpg")
+    const [memeImage, setMemeImage] = React.useState("http://i.imgflip.com/1bij.jpg");
 
     const getMemeImage = () => {
         const randomNumber = Math.floor(Math.random() * allMemes.length);
-        const url = allMemes[randomNumber].url;
-        setMemeImage(url)
+        setMemeImage(allMemes[randomNumber].url);
     }
 
     return (
