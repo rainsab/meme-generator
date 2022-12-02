@@ -18,9 +18,9 @@ export default function MemeImg() {
 
     return (
         <>
-            <img src={memeImage} className="meme-image" />
+            <img src={memeImage} className="meme-image" alt="" />
             <button
-                className="form-button"
+                className="btn btn-secondary"
                 onClick={getMemeImage}
             >
                 Get a new meme image now!

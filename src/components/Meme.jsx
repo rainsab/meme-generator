@@ -40,40 +40,54 @@ export default function Meme() {
 
     const inputElements = memeArray.map(memeObject => {
         return (
-            <div key={memeObject.id}>
-                <input
-                    type="text"
-                    placeholder="your text"
-                    className="form-input"
-                    name="text"
-                    onChange={handleChange}
-                    value={memeObject.text || ''}
-                    id={memeObject.id}
-                />
-                <input
-                    type="number"
-                    placeholder="text position X"
-                    className="form-input"
-                    name="textPositionX"
-                    onChange={handleChange}
-                    value={memeObject.textPositionX || ''}
-                    id={memeObject.id}
-                />
-                <input
-                    type="number"
-                    placeholder="text position Y"
-                    className="form-input"
-                    name="textPositionY"
-                    onChange={handleChange}
-                    value={memeObject.textPositionY || ''}
-                    id={memeObject.id}
-                />
-                <button 
-                    className="form-input"
-                    id={memeObject.id}
-                    onClick={removeMemeText}>
-                    x 
-                </button>
+            <div key={memeObject.id} className="row mb-2 align-items-end">
+                <div className="col-6">
+                    <label for={memeObject.id} class="form-label">Your text</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder=""
+                        name="text"
+                        onChange={handleChange}
+                        value={memeObject.text || ''}
+                        id={memeObject.id}
+                    />
+                </div>
+
+                <div className="col-2">
+                    <label for={memeObject.id} class="form-label">Text position X</label>
+                    <input
+                        type="number"
+                        className="form-control"
+                        placeholder="0"
+                        name="textPositionX"
+                        onChange={handleChange}
+                        value={memeObject.textPositionX || ''}
+                        id={memeObject.id}
+                    />
+                </div>
+
+                <div className="col-2">
+                    <label for={memeObject.id} class="form-label">Text position Y</label>
+                    <input
+                        type="number"
+                        className="form-control"
+                        placeholder="0"
+                        name="textPositionY"
+                        onChange={handleChange}
+                        value={memeObject.textPositionY || ''}
+                        id={memeObject.id}
+                    />
+                </div>
+
+                <div className="col-2">
+                    <button 
+                        className="form-control"
+                        id={memeObject.id}
+                        onClick={removeMemeText}>
+                        Delete 
+                    </button>
+                </div>
         </div>
         )
     })
@@ -93,13 +107,16 @@ export default function Meme() {
                 <MemeImg />
                 {textElements}
             </div>
+
             <div className="form">
                 {inputElements}
                 <button
+                    className="btn btn-secondary"
                     onClick={addMemeText}>
                     Add text
                 </button>
             </div>
+            
             <p className='getMeme'>Just made screenshot to get Meme!</p>
         </main>
     )
