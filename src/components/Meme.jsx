@@ -40,8 +40,8 @@ export default function Meme() {
 
     const inputElements = memeArray.map(memeObject => {
         return (
-            <div key={memeObject.id} className="row mb-2 align-items-end">
-                <div className="col-6">
+            <div key={memeObject.id} className="row mb-4 mb-md-2 align-items-end">
+                <div className="col-md-6">
                     <label for={memeObject.id} class="form-label">Your text</label>
                     <input
                         type="text"
@@ -54,7 +54,7 @@ export default function Meme() {
                     />
                 </div>
 
-                <div className="col-2">
+                <div className="mt-1 col-sm-6 col-md-2">
                     <label for={memeObject.id} class="form-label">Text position X</label>
                     <input
                         type="number"
@@ -67,7 +67,7 @@ export default function Meme() {
                     />
                 </div>
 
-                <div className="col-2">
+                <div className="mt-1 col-sm-6 col-md-2">
                     <label for={memeObject.id} class="form-label">Text position Y</label>
                     <input
                         type="number"
@@ -80,9 +80,9 @@ export default function Meme() {
                     />
                 </div>
 
-                <div className="col-2">
+                <div className="mt-3 col-md-2">
                     <button 
-                        className="form-control"
+                        className="btn btn-light"
                         id={memeObject.id}
                         onClick={removeMemeText}>
                         Delete 
