@@ -2,7 +2,7 @@ import React from "react"
 
 export default function Header() {
     return (
-        <header className="header">
+        <header className="header bg-secondary">
             <img 
                 src="./images/troll-face.png" 
                 className="header-image"

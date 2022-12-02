@@ -17,7 +17,6 @@ main {
     display: flex;
     align-items: center;
     height: 4rem;
-    background-color: #696969;
     color: white;
     padding: 1.25rem;
 }
