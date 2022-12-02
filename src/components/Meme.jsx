@@ -113,7 +113,6 @@ export default function Meme() {
 
     return (
         <main>
-            <p className='h5 mb-3'>Just made screenshot to get Meme!</p>
             <div className="form">
                 <MemeImg />
                 {textElements}

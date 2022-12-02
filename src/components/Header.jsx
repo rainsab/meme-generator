@@ -5,10 +5,10 @@ export default function Header() {
         <header className="header bg-secondary">
             <img 
                 src="./images/troll-face.png" 
-                className="header-image"
+                className="header-image ms-lg-2"
             />
             <h2 className="header-title mb-0">Meme Generator</h2>
-            <h4 className="header-project mb-0">https://github.com/rainsab</h4>
+            <h4 className="header-project mb-0 me-lg-3 me-xxl-5">Just made screenshot to get Meme!</h4>
         </header>
     )
 }
