@@ -23,7 +23,7 @@ export default function MemeImg() {
                 className="btn btn-secondary"
                 onClick={getMemeImage}
             >
-                Get a new meme image now!
+                <p className="h6 mb-0">Get a new meme image now!</p>
             </button>
         </>
     )

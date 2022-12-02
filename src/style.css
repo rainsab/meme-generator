@@ -44,10 +44,6 @@ main {
     margin-bottom: 1.5rem;
 }
 
-.meme {
-    position: relative;
-}
-
 .meme-image {
     max-height: 80vh;
 }

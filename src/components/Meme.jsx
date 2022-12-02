@@ -42,7 +42,7 @@ export default function Meme() {
         return (
             <div key={memeObject.id} className="row mb-4 mb-md-2 align-items-end justify-content-between">
                 <div className="col-md-7">
-                    <label for={memeObject.id} class="form-label">Your text</label>
+                    <label for={memeObject.id} class="form-label"><strong>Your text</strong></label>
                     <input
                         type="text"
                         className="form-control"
