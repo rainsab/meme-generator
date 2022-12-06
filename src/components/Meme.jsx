@@ -34,7 +34,8 @@ export default function Meme() {
     }
 
     const removeMemeText = (event) => {
-        const id = event.target.id;
+        console.log("delete")
+        const id = event.currentTarget.id;
         setMemeArray(prevMemeArray => prevMemeArray.filter(memeObject => memeObject.id !== id));
     }
 
@@ -42,7 +43,7 @@ export default function Meme() {
         return (
             <div key={memeObject.id} className="row mb-4 mb-md-2 align-items-end justify-content-between">
                 <div className="col-md-7">
-                    <label for={memeObject.id} class="form-label"><strong>Your text</strong></label>
+                    <label htmlFor={memeObject.id} className="form-label"><strong>Your text</strong></label>
                     <input
                         type="text"
                         className="form-control"
@@ -55,7 +56,7 @@ export default function Meme() {
                 </div>
 
                 <div className="mt-3 col-6 col-sm-5 col-md-2">
-                    <label for={memeObject.id} class="form-label">Position X</label>
+                    <label htmlFor={memeObject.id} className="form-label">Position X</label>
                     <input
                         type="number"
                         className="form-control"
@@ -68,7 +69,7 @@ export default function Meme() {
                 </div>
 
                 <div className="mt-3 col-6 col-sm-5 col-md-2">
-                    <label for={memeObject.id} class="form-label">Position Y</label>
+                    <label htmlFor={memeObject.id} className="form-label">Position Y</label>
                     <input
                         type="number"
                         className="form-control"
@@ -90,11 +91,11 @@ export default function Meme() {
                             width="16"
                             height="16"
                             fill="currentColor"
-                            class="bi bi-trash"
+                            className="bi bi-trash"
                             viewBox="0 0 16 16"
                         >
                             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                            <path fillRule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
                         </svg>
                     </button>
                 </div>
