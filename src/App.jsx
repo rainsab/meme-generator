@@ -7,7 +7,7 @@ export default function App() {
     <>
       <Header />
       <Meme />
-      <footer>
+      <footer className='mt-2'>
         <p className='text-center mb-2'>Visit my <a href="https://github.com/rainsab" className='link-info'>GitHub</a> to see code!</p>
       </footer>
     </>

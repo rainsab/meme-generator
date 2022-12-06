@@ -34,7 +34,6 @@ export default function Meme() {
     }
 
     const removeMemeText = (event) => {
-        console.log("delete")
         const id = event.currentTarget.id;
         setMemeArray(prevMemeArray => prevMemeArray.filter(memeObject => memeObject.id !== id));
     }
