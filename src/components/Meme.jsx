@@ -105,7 +105,7 @@ export default function Meme() {
     const textElements = memeArray.map(memeObject => {
         return (
             <h2 key={memeObject.id}
-                style={{transform: `translate(${memeObject.textPositionX}px, ${140 + Number(memeObject.textPositionY)}px`}}
+                style={{transform: `translate(${memeObject.textPositionX}px, ${100 + Number(memeObject.textPositionY)}px`}}
                 className="meme-text">{memeObject.text}
             </h2>
         )
