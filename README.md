@@ -46,7 +46,7 @@ npm run build
 
 ## Static files (JavaScript, images, …)
 
-Folders and files from `/src/static/` are simply copied directly to `/dist/` folder.
+Folders and files from `/src/` and `/public/` are simply copied directly to `/dist/` folder.
 
 ### Bootstrap
 
