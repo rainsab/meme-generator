@@ -20,15 +20,15 @@ Includes:
 npm ci
 ```
 
+## Development
+
+Develop with using Vite: https://vitejs.dev/
+
 ```shell
 npm create vite@latest
 ```
 
 ### Then follow the prompts!
-
-## Development
-
-Develop with using Vite: https://vitejs.dev/
 
 ```shell
 npm run dev
