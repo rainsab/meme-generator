@@ -13,6 +13,12 @@ main {
     align-items: center;
 }
 
+canvas {
+    padding: 0;
+    margin: auto;
+    display: block;
+}
+
 .header {
     display: flex;
     align-items: center;
