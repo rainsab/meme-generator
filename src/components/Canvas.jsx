@@ -27,12 +27,14 @@ export default function Canvas() {
     const canvasRef = useRef(null);
     
     useEffect(() => {
-        const canvas = canvasRef.current
-        const context = canvas.getContext("2d")
-        context.fillStyle = "#fff000"
-        context.fillRect(0, 0, context.canvas.width, context.canvas.height)
-        console.log(memeImage)
-        context.drawImage(memeImage, 0, 0)
+        if (memeImage && canvasRef) {
+            const canvas = canvasRef.current
+            const context = canvas.getContext("2d")
+            context.fillStyle = "#fff000"
+            context.fillRect(0, 0, context.canvas.width, context.canvas.height)
+            console.log(memeImage)
+            context.drawImage(memeImage, 0, 0)
+        }
   }, [memeImage, canvasRef])
 
 
